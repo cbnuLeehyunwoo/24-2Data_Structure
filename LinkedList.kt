@@ -240,7 +240,7 @@ class LinkedList<T> : Iterable<T>, Collection<T> {
         // 만약 다음 노드가 널값이 아니라면, (탐색할 노드가 남아있다면)
         if (next != null) {
             // 재귀적으로 addInReverse(list, next) 를 호출한다.
-            addInReverse(list, next)
+            addInReverse(list, next)    
         }// 재귀 호출이 끝나면 함수의 호출 스택이 돌아오면서 역순으로 값을 추가
         list.append(node.value)
     }
@@ -271,7 +271,7 @@ class LinkedList<T> : Iterable<T>, Collection<T> {
         return node.next
     }
     // 정렬된 두 리스트를 병합하는 함수
-    // 시간 복잡도 O(n)
+    // 시간 복잡도 O(m + n)
     fun mergeSorted(
         otherList: LinkedList<T>
     ): LinkedList<T> {
