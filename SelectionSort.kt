@@ -1,4 +1,8 @@
 // 선택 정렬을 수행하는 함수를 ArrayList 의 확장 함수로 구현
+// 시간 복잡도
+// 최선의 경우 : O(n^2) 항상 모든 경우를 비교해야 함 
+// 평균의 경우 : O(n^2) 항상 모든 경우를 비교해야 함
+// 최악의 경우 : O(n^2) 항상 모든 경우를 비교해야 함
 fun <T : Comparable<T>> ArrayList<T>.selectionSort(showPasses: Boolean = false) {
     // 만약 크기가 2보다 작으면 정렬할 필요가 없음
     if (this.size < 2) return
