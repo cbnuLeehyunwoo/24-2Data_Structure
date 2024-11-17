@@ -3,6 +3,8 @@
 // 최선안 경우 : O(n^2) 항상 모든 경우를 비교해야 함 
 // 평균인 경우 : O(n^2) 항상 모든 경우를 비교해야 함
 // 최악인 경우 : O(n^2) 항상 모든 경우를 비교해야 함
+// 단 swap 횟수로 측정할때는 선택 정렬의 경우 최악의 경우에도 O(n)이지만
+// 버블 소트의 경우 최악의 경우에 swap 횟수가 O(n^2)이다.. 
 fun <T : Comparable<T>> ArrayList<T>.selectionSort(showPasses: Boolean = false) {
     // 만약 크기가 2보다 작으면 정렬할 필요가 없음
     if (this.size < 2) return
