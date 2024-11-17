@@ -1,6 +1,9 @@
-
 // 버블 소트를 구현한 ArrayList 확장 함수
 // 제네릭 타입 T가 Comparable 인터페이스를 구현해야 한다는 조건(요소들 간의 비교가 가능해야 한다)
+// 시간 복잡도
+// 최선인 경우 : O(n) 리스트가 이미 정렬된 경우 한 번의 패스로 정렬 여부를 확인
+// 평균인 경우 : O(n^2) 
+// 최악인 경우 : O(n^2) 리스트가 역순일 경우, 모든 요소를 반복적으로 비교하며 스왑
 fun <T: Comparable<T>> ArrayList<T>.bubbleSort(showPasses: Boolean = false) {
     // 리스트의 크기가 2보다 작다면 정렬할 필요가 없으므로 즉시 반환
     if(this.size < 2) return
