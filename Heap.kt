@@ -193,7 +193,44 @@ abstract class AbstractHeap<Element>() : HeapInterface<Element> {
             }
         }
     }
+    // k 번째로 작은 아이템을 리턴하는 함수
+    // 시간 복잡도 O(n log n), remove()가 O(log n), remove 를 k번 호출하게 될 것
+    fun getNthSmallestElement(n: Element): Element? {
+        var current = 1
+        // 힙이 빌때까지
+        while (!isEmpty) {
+            // 각 반복에서 힙의 루트를 제거하며 검사
+            // log n의 시간 복잡도
+            val element = remove()
+            // 현재 제거된 요소가 n 과 같다면
+            if (current == n) {
+                return element
+            }
+            current += 1
+        }
+        return null
+    }
+    // 현재 힙과 다른 힙을 병합하는 함수
+    fun merge(heap: AbstractHeap<Element>) {
+        // 다른 힙의 요소들을 현재 힙의 요소 리스트에 일단 무작정 추가
+        elements.addAll(heap.elements)
+        buildHeap()
+    }
+    // 현재 리스트가 힙의 속성을 만족하도록 재구성하는 함수
+    // 힙의 요소 수 n 에 대하여 O(n)의 시간 복잡도?
+    private fun buildHeap() {
+        // 리스트가 비어있지 않으면 수행
+        if (!elements.isEmpty()) {
+            // 힙 재구축은 트리의 중간부터 
+            // count / 2는 마지막 논터미널 노드의 인덱스를 의미한다
+            (count / 2 downTo 0).forEach {
+                // 모든 논터미널 노드에 대해 sift down 수행
+                siftDown(it)
+            }
+        }
+    }
 }
+
 // compare()함수를 사용하기 위해 제네릭타입에 Comparable 을 상속받는다
 class MaxHeap<Element: Comparable<Element>>() : AbstractHeap<Element>() {
     override fun compare(a: Element, b: Element): kotlin.Int {
