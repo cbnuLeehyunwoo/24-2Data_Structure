@@ -1,8 +1,8 @@
 // 삽입정렬을 ArrayList 의 확장함수로 구현
 // 시간 복잡도
-// 최선의 경우 : O(n) 내부 루프가 실행되지 않고 외부 루프만 실행
-// 평균       : O(n^2)
-// 최악의 경우 : O(n^2) 내부 루프에서 매번 전체 요소를 비교해야 함
+// 최선인 경우 : O(n) 내부 루프가 실행되지 않고 외부 루프만 실행
+// 평균인 경우 : O(n^2)
+// 최악인 경우 : O(n^2) 내부 루프에서 매번 전체 요소를 비교해야 함
 fun <T : Comparable<T>> ArrayList<T>.insertionSort(showPasses: Boolean = false) {
     // 만약 크기가 2보다 작다면 정렬할 필요가 없다
     if (this.size < 2) return
